@@ -30,7 +30,7 @@ It supports adding books, registering members, checking out and returning books,
 
 ---
 
-## Fine Handling (Important Assumption)
+## Fine Handling (Assumption)
 
 ### Assumption
 
@@ -52,25 +52,6 @@ This assumption is applied consistently across the code and tests.
 
 ---
 
-## Project Structure
-
-```
-Task1/
-├── src/
-│   └── library_system/
-│       ├── models/
-│       │   ├── book.py
-│       │   ├── member.py
-│       │   ├── borrow_record.py
-│       │   └── library.py
-├── demo.py
-├── tests/
-│   └── test_library.py
-├── requirements.txt
-└── README.md
-```
-
----
 
 ## How to Run
 
@@ -87,7 +68,8 @@ pip install -r requirements.txt
 ### Run the demo
 
 ```bash
-python demo.py
+python -m src.library_system
+
 ```
 
 ---
@@ -99,7 +81,7 @@ Unit tests are written using **pytest**.
 Run from the `Task1/` directory:
 
 ```bash
-pytest
+pytest -q
 ```
 
 ---
@@ -118,7 +100,4 @@ The system raises clear errors for invalid operations, including:
 ---
 
 ## Notes
-
-- The system is in-memory and does not use a database
 - Dates can be passed explicitly for deterministic testing
-- The design prioritizes clarity, correctness, and testability
