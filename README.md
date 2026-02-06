@@ -2,35 +2,11 @@
 
 This repository contains my submission for the **Intuit Build Challenge**, consisting of two independent tasks implemented in Python.
 
-Both tasks focus on writing clean, readable, and testable code while clearly documenting assumptions and handling edge cases.
 
 ---
 
-## Repository Structure
 
-```
-.
-├── Task1/
-│   ├── src/
-│   │   └── library_system/
-│   ├── tests/
-│   ├── demo.py
-│   ├── requirements.txt
-│   └── README.md
-│
-├── Task2/
-│   ├── order_processor.py
-│   ├── orders.txt
-│   ├── summary_report.txt
-│   ├── error_log.txt
-│   ├── tests/
-│   ├── requirements.txt
-│   └── README.md
-│
-└── README.md   ← (this file)
-```
 
----
 
 ## Task 1 – Library Management System
 
@@ -88,10 +64,8 @@ Tests are designed to:
 
 ## Notes
 
-- Both tasks are intentionally kept simple and in-memory
-- No external databases or services are used
+
 - All design assumptions are explicitly documented in the respective task README files
-- Code prioritizes clarity, correctness, and maintainability
 
 ---
 

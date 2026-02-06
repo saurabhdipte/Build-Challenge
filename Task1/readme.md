@@ -58,6 +58,7 @@ This assumption is applied consistently across the code and tests.
 ### Create and activate virtual environment
 
 ```bash
+cd Task1
 python -m venv .venv
 source .venv/Scripts/activate   # Windows
 pip install -r requirements.txt

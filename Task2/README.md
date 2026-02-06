@@ -60,6 +60,7 @@ Handled cases:
 
 python -m venv .venv  
 source .venv/Scripts/activate  
+cd Task2
 python -m pip install --upgrade pip  
 pip install -r requirements.txt  
 
