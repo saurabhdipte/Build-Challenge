@@ -25,7 +25,7 @@ It supports adding books, registering members, checking out and returning books,
 - A member can borrow **at most 3 books** at a time
 - A member **cannot borrow books if their outstanding fine exceeds $10**
 - Each book can be borrowed for **14 days**
-- Overdue fine is **$1 per day**
+- Overdue fine is **$0.5 per day**
 - Every checkout and return is recorded in the member’s borrowing history
 
 ---
