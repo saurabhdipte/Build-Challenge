@@ -52,37 +52,18 @@ Handled cases:
 
 ---
 
-## Project structure
-
-Task2/
-  order_processor.py
-  orders.txt
-  summary_report.txt
-  error_log.txt
-  requirements.txt
-  README.md
-  tests/
-    test_order_processor.py
-
----
 
 ## Setup
 
 ### Create and activate virtual environment
 
-### Windows (PowerShell / Git Bash)
 
 python -m venv .venv  
 source .venv/Scripts/activate  
 python -m pip install --upgrade pip  
 pip install -r requirements.txt  
 
-### macOS / Linux
-
-python3 -m venv .venv  
-source .venv/bin/activate  
-python -m pip install --upgrade pip  
-pip install -r requirements.txt  
+ 
 
 ---
 
@@ -130,13 +111,4 @@ GRAND TOTAL               25      94      9,876.54        876.23        9,000.31
 - Lines starting with `#` are comments
 - Empty or fully invalid input files still produce a valid output message
 
----
-
-## Technologies used
-
-- Python 3
-- pytest
-- Python standard library only (datetime, decimal, pathlib, dataclasses)
-
----
 
