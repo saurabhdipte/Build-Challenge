@@ -1,7 +1,9 @@
 # Library Book Checkout System (Task 1)
 
 ## Overview
-This project implements a **library book checkout system** using Python and object-oriented design principles.
+This project implements a **library book checkout system** in Python using object-oriented design.
+It was built as part of an interview build challenge and focuses on correctness, clarity, and
+business rule enforcement rather than over-engineering.
 
 The system manages:
 - Books
@@ -9,18 +11,28 @@ The system manages:
 - Book checkouts and returns
 - Due dates and overdue fines
 
-It enforces the following business rules:
+---
+
+## Business Rules Implemented
 
 1. A member can borrow **at most 3 books** at a time  
 2. Books are due **14 days** from the checkout date  
-3. Overdue books incur a fine of **$0.50 per day**  
-4. Members with **unpaid fines over $10** cannot borrow new books  
+3. Overdue books incur a fine of **$0.50 per day per book**  
+4. Members with **total overdue fines greater than $10** cannot borrow new books  
 
-The project includes:
-- Core domain models (`Book`, `Member`, `Library`)
-- Proper exception handling
-- A demo program showing all operations
-- Unit tests covering core functionality and edge cases
+---
+
+## Fine Accounting Model (Important)
+
+- `fineBalance` represents a **LIVE overdue fine meter** for currently borrowed books.
+- Fines accrue daily for overdue books.
+- Returning a book removes that book from the overdue set, so the total fine decreases.
+
+Example:
+- 3 overdue books × $3 each = **$9**
+- Return 1 overdue book → remaining fine = **$6**
+
+This model reflects the *current overdue amount*, not historical debt.
 
 ---
 
@@ -30,7 +42,6 @@ The project includes:
 Task1/
 ├─ readme.md
 ├─ requirements.txt
-├─ conftest.py
 ├─ .gitignore
 ├─ src/
 │  └─ library_system/
@@ -65,13 +76,6 @@ pip install -r requirements.txt
 
 ## Running the Demo
 
-The demo program demonstrates:
-- Adding books and members
-- Successful and failed checkouts
-- Overdue fine calculation
-- Book return with fine charging
-- Borrowing history tracking
-
 Run the demo with:
 
 ```bash
@@ -82,8 +86,6 @@ python -m src.library_system
 
 ## Running Unit Tests
 
-All core methods and rule violations are covered by unit tests.
-
 Run tests using:
 
 ```bash
@@ -92,35 +94,27 @@ pytest -q
 
 ---
 
-## Design Notes & Assumptions
+## Design Notes
 
-- The system uses **object-oriented design**:
-  - `Book` represents a library book
-  - `Member` encapsulates borrower state and history
-  - `Library` acts as the service layer enforcing business rules
-- Overdue fines are **charged at the time of return**
-- `calculateFine()` reports **currently accrued overdue fines** for active loans but does not mutate `fineBalance`
-- Custom exceptions are used to signal invalid operations (e.g., rule violations, missing entities)
-- All date handling is done using Python’s `datetime.date`
+- `Book`, `Member`, and `Library` are modeled as separate classes.
+- `Library` enforces all business rules.
+- Custom exceptions signal invalid operations.
+- Borrowing history records both active and completed loans.
 
 ---
 
-## Sample Output (Demo)
+## Sample Output
 
 ```
---- Available books initially ---
-['Clean Code', 'Design Patterns', 'The Pragmatic Programmer', 'Effective Python']
+Total overdue fine for M1 as of 2026-02-21:
+9.0
 
---- Checkout 3 books for M1 ---
---- Try 4th checkout (should fail) ---
-Expected error: Member cannot borrow more than 3 books at a time.
-
---- Accrued fine as of 2026-02-21 ---
-3.0
-
---- Return one late book ---
-Fine charged: 3.0
+Returning book 111 late on 2026-02-21
+Fine attributable to returned book: 3.0
+Member live fineBalance now (remaining overdue): 6.0
 ```
 
 ---
 
+## Notes
+This project demonstrates clean Python design, rule enforcement, and testability.
