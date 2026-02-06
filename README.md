@@ -19,7 +19,7 @@ A simple object-oriented library system that supports:
 - Tracking borrowing history
 - Unit testing core functionality
 
-📄 **Details:** See `Task1/README.md` for full documentation, assumptions, and usage instructions.
+ **Details:** See `Task1/README.md` for full documentation, assumptions, and usage instructions.
 
 ---
 
@@ -34,7 +34,7 @@ A file-processing application that:
 - Logs malformed or invalid records
 - Includes unit tests for validation and edge cases
 
-📄 **Details:** See `Task2/README.md` for full documentation, assumptions, and usage instructions.
+**Details:** See `Task2/README.md` for full documentation, assumptions, and usage instructions.
 
 ---
 
